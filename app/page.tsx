@@ -50,13 +50,6 @@ const Home = () => {
     }
   }, []);
 
-  const toggleDarkMode = () => {
-    setDarkMode((prevMode) => {
-      const newMode = !prevMode;
-      localStorage.setItem("darkMode", newMode.toString());
-      return newMode;
-    });
-  };
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -98,24 +91,23 @@ const Home = () => {
             isSearchable={true}
           />
         </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-[1280px] mx-auto">
-          {filteredCountries.map((country) => (
-            <Link href={`/country/${country.cca3}`} key={country.cca3} className="rounded-[5px] overflow-hidden shadow hover:shadow-xl transition bg-color1">
-              <img
-                src={country.flags.svg}
-                alt={`${country.name.common} flag`}
-                className="w-full h-40 object-cover"
-              />
-              <div className="p-6">
-                <h2 className="text-lg font-bold mb-4">{country.name.common}</h2>
-                <p className="">Population: {country.population.toLocaleString()}</p>
-                <p className="">Region: {country.region}</p>
-                <p className="">Capital: {country.capital ? country.capital.join(", ") : "N/A"}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-[1280px] mx-auto">
+            {filteredCountries.map((country) => (
+              <Link href={`/country/${country.cca3}`} key={country.cca3} className="rounded-[5px] overflow-hidden shadow hover:shadow-xl transition bg-color1">
+                <img
+                  src={country.flags.svg}
+                  alt={`${country.name.common} flag`}
+                  className="w-full h-40 object-cover"
+                />
+                <div className="p-6">
+                  <h2 className="text-lg font-bold mb-4">{country.name.common}</h2>
+                  <p className="">Population: {country.population.toLocaleString()}</p>
+                  <p className="">Region: {country.region}</p>
+                  <p className="">Capital: {country.capital ? country.capital.join(", ") : "N/A"}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
       </div>
     </div>
   );

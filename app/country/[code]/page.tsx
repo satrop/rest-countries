@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import axios from "axios";
 import "../../globals.scss";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 import LeftArrow from "../../components/svgIcons/LeftArrowIcon";
 
@@ -38,14 +40,6 @@ const CountryDetail = () => {
     }
   }, []);
 
-  const toggleDarkMode = () => {
-    setDarkMode((prevMode) => {
-      const newMode = !prevMode;
-      localStorage.setItem("darkMode", newMode.toString());
-      return newMode;
-    });
-  };
-
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark");
@@ -79,12 +73,24 @@ const CountryDetail = () => {
         </button>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-11 md:gap-36">
-          <img
-            src={country.flags.svg}
-            alt={`${country.name.common} flag`}
-            className="w-full h-auto object-cover overflow-hidden rounded-[10px]"
-          />
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Image
+              src={country.flags.svg}
+              alt={`${country.name.common} flag`}
+              width={500}
+              height={300}
+              className="w-full h-auto object-cover overflow-hidden rounded-[10px] shadow-xl"
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <h1 className="text-[22px] md:text-[32px] font-extrabold mb-4 md:mb-6">{country.name.common}</h1>
             <div className="info grid grid-cols-1 md:grid-cols-2 gap-x-24">
               <section className="grid gap-y-2 mt-8 md:mt-0">
@@ -102,16 +108,17 @@ const CountryDetail = () => {
               <section className="flex flex-col md:flex-row md:items-center md:col-span-2 mt-[68px]">
                 <b>Borders:</b>
                 {country.borders ? (
-                    <ul className="flex flex-wrap gap-[10px] mt-2 md:mt-0 md:ml-4">
-                      {country.borders.map((border, index) => (
-                        <li className="bg-color1 py-[5px] px-7 text-sm " key={index}>{border}</li>
-                      ))}
-                    </ul>
-                  ) : "None"}
+                  <ul className="flex flex-wrap gap-[10px] mt-2 md:mt-0 md:ml-4">
+                    {country.borders.map((border, index) => (
+                    <li className="bg-color1 py-[5px] px-7 text-sm " key={index}>{border}</li>
+                    ))}
+                  </ul>
+                  ) : "\u00A0None"}
 
               </section>
             </div>
-          </div>
+
+          </motion.div>
         </div>
 
       </div>
