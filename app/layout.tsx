@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://rest-countries-khaki-kappa.vercel.app/'),
   openGraph: {
     title: "REST Countries API with color theme switcher",
+    siteName: "REST Countries API with color theme switcher",
     type: "website",
     url: "https://rest-countries-khaki-kappa.vercel.app/",
     images: [
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Image description",
+        alt: "Country flags",
       },
     ],
   },
