@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     url: "https://rest-countries-khaki-kappa.vercel.app/",
     images: [
       {
-        url: "images/og.png",
+        url: "/og.png",
         width: 1200,
         height: 630,
         alt: "Image description",
