@@ -78,15 +78,15 @@ const Home = () => {
   );
 
   return (
-    <div className={`min-h-screen ${darkMode ? "dark" : ""}`}>
+    <div className={`min-h-screen px-10 ${darkMode ? "dark" : ""}`}>
       <div className="grid gap-8">
-        <div className="container flex gap-4 justify-between items-center max-w-[1280px] mx-auto h-[46px] lg:h-14">
+        <div className="container flex flex-col lg:flex-row gap-8 justify-between lg:items-center max-w-[1280px] mx-auto">
           <Search search={search} setSearch={setSearch} darkMode={darkMode} />
           <Select
             value={regionOptions.find(option => option.value === region)}
             onChange={(newValue) => setRegion((newValue as SingleValue<RegionOption>)?.value || "")}
             options={regionOptions}
-            className={`w-full transition duration-300 h-full max-w-[224px] custom-react-select ${darkMode ? "dark-mode" : "light-mode shadow-xl"}`}
+            className={`w-full transition duration-300 max-w-[224px] custom-react-select h-14 ${darkMode ? "dark-mode" : "light-mode shadow-xl"}`}
             classNamePrefix="react-select"
             isSearchable={true}
           />

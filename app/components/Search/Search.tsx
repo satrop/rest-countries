@@ -10,7 +10,7 @@ interface SearchProps {
 
 const Search = ({ search, setSearch, darkMode }: SearchProps) => {
   return (
-    <div className="flex relative items-center w-full h-full max-w-[480px]">
+    <div className="flex relative items-center w-full h-14 max-w-[480px]">
       <SearchIcon />
       <input
         type="text"

@@ -111,3 +111,42 @@ html {
     }
   }
 }
+
+// Automatically apply dark theme based on user's system settings
+@media (prefers-color-scheme: dark) {
+  html {
+    & {
+      body {
+        background-color: var(--theme1-mainBG);
+        color: var(--theme1-text);
+      }
+
+      .bg-color1 {
+        background-color: var(--theme1-color1);
+      }
+
+      .light-dark-toggle {
+        svg {
+          path {
+            fill: white;
+          }
+        }
+      }
+
+      .react-select__control,
+      .react-select__menu {
+        background-color: var(--theme1-color1);
+      }
+
+      .react-select__option {
+        &:hover {
+          background-color: var(--violet);
+        }
+      }
+
+      .react-select__single-value {
+        color: var(--theme1-text);
+      }
+    }
+  }
+}
