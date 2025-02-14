@@ -12,6 +12,8 @@
   --theme2-mainBG: #FAFAFA;
   --theme2-color1: #FFFFFF;
   --theme2-text: #000000;
+
+  --violet: #8b5cf6
 }
 
 body {
@@ -46,7 +48,7 @@ html {
     }
   }
 
-  &:not(.dark){
+  &:not(.dark) {
     body {
       background-color: var(--theme2-color1);
       color: var(--theme2-text);
@@ -62,6 +64,50 @@ html {
           stroke: black;
         }
       }
+    }
+  }
+
+  .react-select__control {
+    border: none;
+    border-radius: 5px;
+    height: 100%;
+  }
+
+  .react-select__control {
+    &--is-focused {
+      box-shadow: 0 0 0 2px var(--violet);
+    }
+  }
+
+  .react-select__single-value {
+    color: var(--theme2-text);
+  }
+
+  &.dark {
+    .react-select__control,
+    .react-select__menu {
+      background-color: var(--theme1-color1);
+    }
+
+    .react-select__option {
+
+      &:hover {
+        background-color: var(--violet);
+      }
+    }
+
+    .react-select__single-value {
+      color: var(--theme1-text);
+    }
+  }
+
+  &:not(.dark) {
+    .react-select__control {
+      background-color: var(--theme2-color1);
+    }
+
+    .react-select__single-value {
+      color: var(--theme2-text);
     }
   }
 }
