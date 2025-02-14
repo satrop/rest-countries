@@ -6,6 +6,7 @@ import axios from "axios";
 import "../../globals.scss";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 import LeftArrow from "../../components/svgIcons/LeftArrowIcon";
 
@@ -60,14 +61,21 @@ const CountryDetail = () => {
     }
   }, [code]);
 
-  if (!country) return <div>Loading...</div>;
+  if (!country) return (
+    <div className="flex items-center justify-center min-h-screen">
+      <svg className="animate-spin h-8 w-8 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+      </svg>
+    </div>
+  );
 
   return (
     <div className={`min-h-screen px-10 ${darkMode ? "dark" : ""}`}>
 
       <div className="grid gap-8 max-w-[1280px] mx-auto">
 
-        <button onClick={() => router.back()} className="mb-8 p-2 bg-color1 rounded-[5px] flex items-center gap-2 mr-auto">
+        <button onClick={() => router.back()} className="mb-8 py-2 px-8 outline-none ring-0 focus-within:ring-2 focus-within:ring-violet-500 bg-color1 rounded-[5px] flex items-center gap-2 mr-auto shadow-xl hover:shadow-md">
         <LeftArrow />
         Back
         </button>
@@ -110,7 +118,11 @@ const CountryDetail = () => {
                 {country.borders ? (
                   <ul className="flex flex-wrap gap-[10px] mt-2 md:mt-0 md:ml-4">
                     {country.borders.map((border, index) => (
-                    <li className="bg-color1 py-[5px] px-7 text-sm " key={index}>{border}</li>
+                    <li key={index}>
+                      <Link className="bg-color1 py-[5px] px-7 text-sm shadow-xl hover:shadow-md outline-none ring-0 focus-within:ring-2 focus-within:ring-violet-500 rounded" href={`/country/${border}`}>
+                        {border}
+                      </Link>
+                    </li>
                     ))}
                   </ul>
                   ) : "\u00A0None"}

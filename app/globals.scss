@@ -112,6 +112,13 @@ html {
   }
 }
 
+.spinner-border {
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: currentColor;
+  border-left-color: currentColor;
+}
+
 // Automatically apply dark theme based on user's system settings
 @media (prefers-color-scheme: dark) {
   html {

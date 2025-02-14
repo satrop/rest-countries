@@ -93,7 +93,7 @@ const Home = () => {
         </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-[1280px] mx-auto">
             {filteredCountries.map((country) => (
-              <Link href={`/country/${country.cca3}`} key={country.cca3} className="rounded-[5px] overflow-hidden shadow hover:shadow-xl transition bg-color1">
+              <Link href={`/country/${country.cca3}`} key={country.cca3} className="rounded-[5px] overflow-hidden shadow hover:shadow-xl transition bg-color1 outline-none ring-0 focus-within:ring-2 focus-within:ring-violet-500">
                 <img
                   src={country.flags.svg}
                   alt={`${country.name.common} flag`}
