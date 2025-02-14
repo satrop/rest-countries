@@ -71,7 +71,7 @@ const CountryDetail = () => {
   );
 
   return (
-    <div className={`min-h-screen px-10 ${darkMode ? "dark" : ""}`}>
+    <main className={`min-h-screen px-10 ${darkMode ? "dark" : ""}`}>
 
       <div className="grid gap-8 max-w-[1280px] mx-auto">
 
@@ -135,7 +135,7 @@ const CountryDetail = () => {
 
       </div>
 
-    </div>
+    </main>
   );
 };
 

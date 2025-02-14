@@ -9,6 +9,7 @@
 ### Built with ❤️
 
 -   Next.js
+-   TypeScript
 -   Tailwind
 -   Mobile-first workflow
 -   Varcel

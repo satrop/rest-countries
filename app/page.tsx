@@ -78,7 +78,7 @@ const Home = () => {
   );
 
   return (
-    <div className={`min-h-screen px-10 ${darkMode ? "dark" : ""}`}>
+    <main className={`min-h-screen px-10 ${darkMode ? "dark" : ""}`}>
       <div className="grid gap-8">
         <div className="container flex flex-col lg:flex-row gap-8 justify-between lg:items-center max-w-[1280px] mx-auto">
           <Search search={search} setSearch={setSearch} darkMode={darkMode} />
@@ -109,7 +109,7 @@ const Home = () => {
             ))}
           </div>
       </div>
-    </div>
+    </main>
   );
 };
 
